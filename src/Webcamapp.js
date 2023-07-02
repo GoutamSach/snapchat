@@ -36,7 +36,7 @@ function Webcamapp() {
         />
         <div className="  absolute  bottom-5 ">
           <button onClick={capture} className="">
-            <RadioButtonUncheckedIcon className=" text-white scale-150  " />
+            <RadioButtonUncheckedIcon className=" text-white scale-150 cursor-pointer " />
           </button>
         </div>
       </div>
