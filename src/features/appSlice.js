@@ -2,17 +2,32 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const appSlice = createSlice({
   name: "app",
-  initialState: { value: 0 },
+  initialState: {
+    user: null,
+    selectedImage: null,
+  },
 
   reducers: {
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    login: (state, action) => {
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.user = null;
+    },
+    selectImage: (state, action) => {
+      state.selectedImage = action.payload;
+    },
+    resetSelectImage: (state) => {
+      state.selectedImage = null;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = appSlice.actions;
+export const { logout, login, selectImage, resetSelectImage } =
+  appSlice.actions;
 
-export const selectCount = (state) => state.app.value;
+export const userLogin = (state) => state.app.value;
+
+export const selectSelectedImage = (state) => state.app.selectedImage;
 
 export default appSlice.reducer;

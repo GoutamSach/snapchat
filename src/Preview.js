@@ -13,28 +13,15 @@ import TimerIcon from "@mui/icons-material/Timer";
 import SendIcon from "@mui/icons-material/Send";
 import { v4 } from "uuid";
 import { db, storage } from "./firebase";
-import {
-  getDownloadURL,
-  ref,
-  uploadBytesResumable,
-  uploadString,
-} from "firebase/storage";
-import {
-  collection,
-  doc,
-  serverTimestamp,
-  setDoc,
-} from "firebase/firestore/lite";
+import { getDownloadURL, ref, uploadString } from "firebase/storage";
+import { collection, doc, serverTimestamp, setDoc } from "firebase/firestore";
 
 function Preview() {
   const capturedImage = useSelector(selectImage);
   const images = capturedImage;
 
-  // const file = new File(capturedImage, {
-  //   type: "jpeg",
-  // });
-
   const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const DataUrl = `data:image/jpeg;base64,${capturedImage}`;
 
@@ -50,6 +37,7 @@ function Preview() {
           read: false,
           timestamp: serverTimestamp(),
         });
+        navigate("/Chat");
       });
     });
 
