@@ -7,4 +7,8 @@ export default configureStore({
     app: appReducer,
     camera: cameraReducer,
   },
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: false,
+  //   }),
 });

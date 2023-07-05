@@ -18,12 +18,10 @@ import { collection, doc, serverTimestamp, setDoc } from "firebase/firestore";
 
 function Preview() {
   const capturedImage = useSelector(selectImage);
-  const images = capturedImage;
 
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const DataUrl = `data:image/jpeg;base64,${capturedImage}`;
 
   const sendPost = () => {
     const id = v4();
@@ -37,19 +35,9 @@ function Preview() {
           read: false,
           timestamp: serverTimestamp(),
         });
-        navigate("/Chat");
+        navigate("/");
       });
     });
-
-    // const pushtoDatabase = (downloadURL) => {
-    //   const post = collection(db, "post");
-    //   setDoc(doc(post), {
-    //     imageURl: downloadURL,
-    //     userName: "goutam",
-    //     read: false,
-    //     timestamp: serverTimestamp(),
-    //   });
-    // };
   };
 
   const closePreview = () => {
@@ -64,7 +52,7 @@ function Preview() {
   }, []);
 
   return (
-    <div className="cursor-pointer  relative">
+    <div className="cursor-pointer  relative top-5 left-[1px]">
       <CloseIcon
         className=" text-white absolute top-3 left-3    "
         onClick={closePreview}

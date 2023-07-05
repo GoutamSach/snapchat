@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const appSlice = createSlice({
   name: "app",
@@ -14,7 +14,7 @@ export const appSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
-    selectImage: (state, action) => {
+    selectImagefromAppSlice: (state, action) => {
       state.selectedImage = action.payload;
     },
     resetSelectImage: (state) => {
@@ -23,10 +23,10 @@ export const appSlice = createSlice({
   },
 });
 
-export const { logout, login, selectImage, resetSelectImage } =
+export const { logout, login, selectImagefromAppSlice, resetSelectImage } =
   appSlice.actions;
 
-export const userLogin = (state) => state.app.value;
+export const userLogin = (state) => state.app.user;
 
 export const selectSelectedImage = (state) => state.app.selectedImage;
 
