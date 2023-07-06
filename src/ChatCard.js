@@ -8,7 +8,7 @@ import { db } from "./firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router";
 
-function ChatCard({ userName, timestamp, imageUrl, read, id }) {
+function ChatCard({ userName, timestamp, photoUrl, imageUrl, read, id }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,11 +26,15 @@ function ChatCard({ userName, timestamp, imageUrl, read, id }) {
       className={`border-b flex px-1 py-2 space-x-1 cursor-pointer items-center 
        ${!read && " font-bold"}`}
     >
-      <div className="  scale-90">
-        <Avatar src={imageUrl} />
+      <div
+        className={` scale-90   ${
+          !read && "  border  border-red-500 rounded-full border-2 p-[1px] "
+        } `}
+      >
+        <Avatar src={photoUrl} />
       </div>
       <div className="  flex-grow">
-        <h2 className={`text-sm  font-semibold ${!read && "font-bold"} `}>
+        <h2 className={`text-sm  font-semibold ${!read && "  font-bold"} `}>
           {userName}
         </h2>
         <div className=" text-xs">

@@ -15,9 +15,11 @@ import { v4 } from "uuid";
 import { db, storage } from "./firebase";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { collection, doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { userLogin } from "./features/appSlice";
 
 function Preview() {
   const capturedImage = useSelector(selectImage);
+  const nameOfUser = useSelector(userLogin);
 
   const navigate = useNavigate();
 
@@ -31,7 +33,7 @@ function Preview() {
         const posts = collection(db, "posts");
         setDoc(doc(posts), {
           imageUrl: url,
-          userName: "goutam",
+          userName: nameOfUser.displayName,
           read: false,
           timestamp: serverTimestamp(),
         });

@@ -65,14 +65,15 @@ function Chat() {
           </div>
         </div>
         <div className=" bg-white  h-[450px]  w-80 rounded-tl-2xl -mt-2 shadow-[1px_-5px_10px_2px_rgba(0,0,0,0.3)]  overflow-scroll no-scrollbar        ">
-          {posts.map(({ id, data: { read, timestamp } }) => (
+          {posts.map(({ id, data: { read, timestamp, imageUrl } }) => (
             <ChatCard
               key={id}
               userName={user.displayName}
-              imageUrl={user.photoUrl}
+              photoUrl={user.photoUrl}
               timestamp={timestamp}
               id={id}
               read={read}
+              imageUrl={imageUrl}
             />
           ))}
         </div>

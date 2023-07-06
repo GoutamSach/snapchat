@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { selectSelectedImage } from "./features/appSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import ClearIcon from "@mui/icons-material/Clear";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import { selectImage } from "./features/cameraSlice";
 
-function View() {
-  const capturedImage = useSelector(selectImage);
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
+
+function View({ imageUrl }) {
   const navigate = useNavigate();
+  const imageUrlfromState = useSelector(selectSelectedImage);
 
   const exit = () => {
     navigate("/");
@@ -16,7 +15,10 @@ function View() {
   return (
     <>
       <div className=" relative">
-        <div className=" absolute right-5 top-5">
+        <div
+          className=" absolute left-56 top-12
+        "
+        >
           <CountdownCircleTimer
             isPlaying
             duration={10}
@@ -33,9 +35,9 @@ function View() {
             }}
           </CountdownCircleTimer>
         </div>
-        <div className="">
+        <div className="  relative top-4  left-[2px]">
           <img
-            src={capturedImage}
+            src={imageUrlfromState}
             onClick={exit}
             alt=""
             className=" cursor-pointer"
