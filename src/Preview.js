@@ -36,6 +36,7 @@ function Preview() {
           userName: nameOfUser.displayName,
           read: false,
           timestamp: serverTimestamp(),
+          profilePic: nameOfUser.photoUrl,
         });
         navigate("/");
       });

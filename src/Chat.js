@@ -48,11 +48,11 @@ function Chat() {
   return (
     <>
       <div className=" flex  flex-col justify-center relative left-[2px]    ">
-        <div className=" flex items-center h-14  justify-between w-80  bg-blue-500     ">
+        <div className=" flex items-center h-14  justify-between w-80 bg-blue-500     ">
           <div className="" onClick={() => signout()}>
             <Avatar src={user.photoUrl} className=" scale-75" />
           </div>
-          <div className=" space-x-2 pl-2 text-white">
+          <div className=" space-x-2 pl-2 text-white flex items-center flex-row w-44 ">
             <SearchIcon />
             <input
               type="text"
@@ -65,17 +65,22 @@ function Chat() {
           </div>
         </div>
         <div className=" bg-white  h-[450px]  w-80 rounded-tl-2xl -mt-2 shadow-[1px_-5px_10px_2px_rgba(0,0,0,0.3)]  overflow-scroll no-scrollbar        ">
-          {posts.map(({ id, data: { read, timestamp, imageUrl } }) => (
-            <ChatCard
-              key={id}
-              userName={user.displayName}
-              photoUrl={user.photoUrl}
-              timestamp={timestamp}
-              id={id}
-              read={read}
-              imageUrl={imageUrl}
-            />
-          ))}
+          {posts.map(
+            ({
+              id,
+              data: { read, timestamp, imageUrl, userName, profilePic },
+            }) => (
+              <ChatCard
+                key={id}
+                userName={userName}
+                photoUrl={profilePic}
+                timestamp={timestamp}
+                id={id}
+                read={read}
+                imageUrl={imageUrl}
+              />
+            )
+          )}
         </div>
         <RadioButtonUncheckedIcon
           className="  bg-white rounded-full scale-150 absolute cursor-pointer bottom-12 right-[150px] text-gray-700     "

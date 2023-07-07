@@ -6,8 +6,8 @@ import { setCameraImage } from "./features/cameraSlice";
 import { useNavigate } from "react-router";
 
 const videoConstraints = {
-  height: "450",
-  width: "300",
+  height: "470",
+  width: "325",
   facingMode: "user",
 };
 
@@ -26,14 +26,14 @@ function Webcamapp() {
   return (
     <>
       <div className=" flex  flex-col  items-center justify-center relative w-[350px]  ">
-        <div className=" absolute  w-96 h-96 top-6 left-[2px] ">
+        <div className="  absolute     top-7   left-[0px] ">
           <Webcam
             className=""
             audio={false}
-            height={700}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
-            width={320}
+            width={325}
+            height={470}
             videoConstraints={videoConstraints}
           />
         </div>

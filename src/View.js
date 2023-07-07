@@ -16,7 +16,7 @@ function View({ imageUrl }) {
     <>
       <div className=" relative">
         <div
-          className=" absolute left-56 top-12
+          className=" absolute left-56 top-12 z-50
         "
         >
           <CountdownCircleTimer
@@ -35,7 +35,7 @@ function View({ imageUrl }) {
             }}
           </CountdownCircleTimer>
         </div>
-        <div className="  relative top-4  left-[2px]">
+        <div className="  relative top-4  left-[2px] z-10">
           <img
             src={imageUrlfromState}
             onClick={exit}
